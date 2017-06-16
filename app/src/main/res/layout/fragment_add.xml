@@ -56,7 +56,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignRight="@+id/addName"
-                android:layout_alignEnd="@+id/addName" />
+                android:layout_alignEnd="@+id/addName"
+                android:inputType="phone"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -224,7 +225,7 @@
                 android:layout_alignRight="@+id/addComplemento"
                 android:layout_alignEnd="@+id/addComplemento"
                 android:background="@color/orange"
-                android:textColor="@color/gray"/>
+                android:textColor="@color/white"/>
 
         </RelativeLayout>
     </ScrollView>

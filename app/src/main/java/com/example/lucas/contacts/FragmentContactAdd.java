@@ -8,6 +8,7 @@ import android.content.ContentValues;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,6 +54,7 @@ public class FragmentContactAdd extends Fragment {
            }
        });
        addCepListener();
+       showTextViesAsMandatory();
 
        return view;
    }
@@ -135,7 +137,7 @@ public class FragmentContactAdd extends Fragment {
        call.enqueue(new Callback<EnderecoVO>() {
 
            ProgressDialog dialog = ProgressDialog.show(view.getContext(), "",
-                   "Aguarde enquanto o endereço é buscado!", true);
+                   "Localizando endereço", true);
            @Override
            public void onResponse(Call<EnderecoVO> call, Response<EnderecoVO> response) {
                dialog.hide();
@@ -286,7 +288,7 @@ public class FragmentContactAdd extends Fragment {
         TextView cep = (TextView) view.findViewById(R.id.addCep);
         String text = cep.getText().toString();
         if(text == null || text.trim().equals(EMPTY_STRING)) {
-            Toast.makeText(view.getContext(), R.string.telefone_obrigatorio, Toast.LENGTH_LONG).show();
+            Toast.makeText(view.getContext(), R.string.cep_obrigatorio, Toast.LENGTH_LONG).show();
             return false;
         }
 
@@ -314,5 +316,28 @@ public class FragmentContactAdd extends Fragment {
         fragmentTransaction.commit();
         add.show();
         list.hide();
+    }
+
+    public void showTextViesAsMandatory(){
+        TextView name = (TextView) view.findViewById(R.id.textNome);
+        TextView phone = (TextView) view.findViewById(R.id.textFone);
+        TextView email = (TextView) view.findViewById(R.id.textEmail);
+        TextView cep = (TextView) view.findViewById(R.id.textCep);
+        TextView numero = (TextView) view.findViewById(R.id.textNumero);
+        TextView bairro = (TextView) view.findViewById(R.id.textBairro);
+        TextView uf = (TextView) view.findViewById(R.id.textUf);
+        TextView cidade = (TextView) view.findViewById(R.id.textCidade);
+
+        showTextViewsAsMandatory(name, phone, email, cep, numero, bairro, uf, cidade);
+    }
+
+    public void showTextViewsAsMandatory ( TextView... tvs )
+    {
+        for ( TextView tv : tvs )
+        {
+            String text = tv.getText ().toString ();
+
+            tv.setText ( Html.fromHtml("<font color=\"#FF0000\">" + "* " + "</font>" + text));
+        }
     }
 }

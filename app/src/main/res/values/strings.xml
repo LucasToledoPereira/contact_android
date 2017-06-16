@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Contacts</string>
+    <string name="app_name">Contatos</string>
     <string name="action_settings">Settings</string>
     <string name="Add_New">Adicionar</string>
     <string name="edit">Editar</string>
@@ -32,7 +32,6 @@
     <string name="uf_obrigatorio">O campo UF é obrigatório</string>
     <string name="bairro_obrigatorio">O campo bairro é obrigatório</string>
     <string name="numero_obrigatorio">O campo número é obrigatório</string>
-    <string name="email_invalido">O email digitado não é valido!</string>
-    <string name="lista_vazia">Não há contatos adicionado!</string>
-    <string name="buscando_endereco">Aguarde enquanto o endereço é buscado</string>
+    <string name="email_invalido">O email digitado não é valido</string>
+    <string name="lista_vazia">Não há contatos adicionados</string>
 </resources>
